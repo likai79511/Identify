@@ -1,0 +1,44 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion '25.0.2'
+    defaultConfig {
+        applicationId "k.agera.com.identify"
+        minSdkVersion 15
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+    }
+
+
+    signingConfigs{
+        release {
+            keyAlias 'Identify'
+            keyPassword '123456'
+            storeFile file('../key/identify.keystore')
+            storePassword '123456'
+        }
+
+        debug{
+            keyAlias 'Identify'
+            keyPassword '123456'
+            storeFile file('../key/identify.keystore')
+            storePassword '123456'
+        }
+    }
+
+
+}
+
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    compile project(':agera')
+}
+repositories {
+    mavenCentral()
+}
